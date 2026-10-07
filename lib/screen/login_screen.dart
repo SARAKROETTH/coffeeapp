@@ -1,9 +1,12 @@
 import 'package:coffeeshop/main.dart';
+import 'package:coffeeshop/screen/widgets/button_login_widget.dart';
+import 'package:coffeeshop/screen/widgets/social_login_button.dart';
+import 'package:coffeeshop/screen/widgets/text_field_widget.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
-  
+
   final imageUrl = supabase.storage.from("coffee-image").getPublicUrl("background_login.png");
   final imageLotusConnerUrl = supabase.storage.from("coffee-image").getPublicUrl("Lotus_conner.png");
   final imageLogoUrl = supabase.storage.from("coffee-image").getPublicUrl("logo_image.png");
@@ -22,8 +25,6 @@ class LoginScreen extends StatelessWidget {
         ),
         child: Stack(
           children: [
-
-
             SizedBox(
               width: size.width,
               height: 350,
@@ -31,7 +32,7 @@ class LoginScreen extends StatelessWidget {
             ),
 
             Positioned(
-              top: 150,
+              top: 140,
               left: 0,
               right: 0,
               bottom: 0,
@@ -90,7 +91,6 @@ class LoginScreen extends StatelessWidget {
                                         fontFamily: "GoogleSan",
                                         letterSpacing: 2
                                     ))
-
                               ],
                             )),
                       ),
@@ -102,116 +102,104 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
 
-            Positioned(
-              top: 290,
+            Positioned.fill(
+              top: 255,
               left: 0,
               right: 0,
-              bottom: 0,
 
+              child: SafeArea(
 
-              child: Container(
-                decoration: BoxDecoration(
-                ),
-                child: Column(
-                  children: [
-                    Text("Welcome Back",style: TextStyle(
-                      fontSize: 24,
-                      color: Color(0xff3E2723),
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "GoogleSan"
-                    ),),
-                    Text("sign in to continue",style: TextStyle(
-                      fontSize: 16,
-                      color: Color(0xff3E2723),
-                      fontWeight: FontWeight.w100,
-                      fontFamily: "GoogleSan"
-                    ),),
-                    Container(
-                      padding: EdgeInsets.all(24),
-                      decoration: BoxDecoration(
+                child: Container(
+                  decoration: BoxDecoration(
 
-                      ),
-                      child: Column(
-                        children: [
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: "Email",
-                              hintStyle: TextStyle(
-                                fontSize: 16,
-                                color: Color(0xff3E2723),
-                                fontWeight: FontWeight.w100,
-                                fontFamily: "GoogleSan"
-                              ),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(
-                                  color: Color(0xff3E2723),
-                                  width: 1
-                                ),
-                              ),
-                              prefixIcon: Icon(Icons.person,color: Color(0xff3E2723),)
-
-                            ),
+                  ),
+                  child: SingleChildScrollView(
+                    keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                    physics: NeverScrollableScrollPhysics(),
+                    child: Column(
+                      children: [
+                        Text("Welcome Back",style: TextStyle(
+                            fontSize: 24,
+                            color: Color(0xff3E2723),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "GoogleSan"
+                        ),),
+                        Text("sign in to continue",style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xff3E2723),
+                            fontWeight: FontWeight.w100,
+                            fontFamily: "GoogleSan"
+                        ),),
+                        SizedBox(height: 10,),
+                        TextFieldWidget(hintText: "Email", iconText: Icons.person),
+                        TextFieldWidget(hintText: "Password", iconText: Icons.lock,obscureText: true),
+                        SizedBox(height: 10,),
+                        Container(
+                          width: size.width ,
+                          height: 50,
+                          margin: EdgeInsets.symmetric(horizontal: 12),
+                          decoration: BoxDecoration(
 
                           ),
-                          SizedBox(height: 20,),
-                          TextField(
-                            decoration: InputDecoration(
-                                hintText: "Password",
-                                hintStyle: TextStyle(
+                          child: ElevatedButton(
+                              onPressed: (){},
+
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Color(0xff3E2723),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(13)
+                                )
+                              ),
+                            child: Text("Sign in",style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: "GoogleSan"
+                            ),),
+
+
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
+                          child: Row(
+                            children: [
+                              Expanded(child: Divider(color: Color(0xff3E2723),)),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Text("Or",style: TextStyle(
                                     fontSize: 16,
                                     color: Color(0xff3E2723),
-                                    fontWeight: FontWeight.w100,
+                                    fontWeight: FontWeight.bold,
                                     fontFamily: "GoogleSan"
-                                ),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                      color: Color(0xff3E2723),
-                                      width: 1
-                                  ),
-                                ),
-                                prefixIcon: Icon(Icons.lock,color: Color(0xff3E2723),),
-                                suffixIcon: Icon(Icons.visibility_off,color: Color(0xff3E2723),)
-                            ),
-
+                                ),),
+                              ),
+                              Expanded(child: Divider(color: Color(0xff3E2723),)),
+                            ],
                           ),
-                          SizedBox(height: 20,),
-                          Container(
-                            width: size.width * 0.9,
-                            decoration: BoxDecoration(
-
-                            ),
-                            child: ElevatedButton(
-
-                                onPressed: (){},
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: Color(0xff3E2723),
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(10)
-                                    ),
-                                    padding: EdgeInsets.symmetric(horizontal: 30,vertical: 15)
-                                ),
-                                child: Text("Sign In",
-                                    style: TextStyle(fontSize: 16, color: Color(0xffffffff),
-                                        fontWeight: FontWeight.w100,
-                                        fontFamily: "GoogleSan",
-
-                                    )
-                                )
-                            ),
-                          )
-
-                        ],
-                      ),
-                    )
+                        ),
+                        ButtonLoginWidget(text: "Sign in with google", image: "assets/images/google_icon.png"),
+                        SizedBox(height: 10,),
+                        ButtonLoginWidget(text: "Sign in with facebook", image: "assets/images/facebook_icon.png"),
+                        SizedBox(height: 10,)
 
 
-                  ],
+
+
+
+
+
+
+
+
+
+                      ],
+                    ),
+                  )
                 ),
               ),
-              
-              
+
+
             ),
 
 
@@ -220,8 +208,8 @@ class LoginScreen extends StatelessWidget {
         ),
       ));
   }
-  
-  
+
+
 }
 
 class LoginWaveClipper extends CustomClipper<Path> {

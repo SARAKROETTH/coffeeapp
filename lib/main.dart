@@ -1,5 +1,6 @@
 
 import 'package:coffeeshop/screen/login_screen.dart';
+import 'package:flutter/services.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:coffeeshop/screen/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,10 @@ import 'package:flutter/material.dart';
 Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
+
+   await SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.immersiveSticky
+  );
 
   await Supabase.initialize(
     url: "https://kfqzrgpvnhforukdghrc.supabase.co",
