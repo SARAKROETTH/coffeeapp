@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
             ),
 
             Positioned(
-              top: 140,
+              top: 120,
               left: 0,
               right: 0,
               bottom: 0,
@@ -103,7 +103,7 @@ class LoginScreen extends StatelessWidget {
             ),
 
             Positioned.fill(
-              top: 255,
+              top: 210,
               left: 0,
               right: 0,
 
@@ -160,8 +160,17 @@ class LoginScreen extends StatelessWidget {
 
                           ),
                         ),
+                        TextButton(onPressed: (){
+
+                        }, child: Text("Forgot Password?",style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xff3E2723),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "GoogleSan",
+                          decoration: TextDecoration.underline
+                        ),)),
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: 10,horizontal: 12),
+                          padding: EdgeInsets.symmetric(horizontal: 12),
                           child: Row(
                             children: [
                               Expanded(child: Divider(color: Color(0xff3E2723),)),
@@ -178,20 +187,30 @@ class LoginScreen extends StatelessWidget {
                             ],
                           ),
                         ),
+                        SizedBox(height: 5,),
                         ButtonLoginWidget(text: "Sign in with google", image: "assets/images/google_icon.png"),
                         SizedBox(height: 10,),
                         ButtonLoginWidget(text: "Sign in with facebook", image: "assets/images/facebook_icon.png"),
-                        SizedBox(height: 10,)
+                        SizedBox(height: 10,),
+                        RichText(
+                          textAlign: TextAlign.center,
+                            text: TextSpan(
+                                children: [
+                                  TextSpan(text: "Don't have an account? ",style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xff3E2723),
+                                      fontFamily: "GoogleSan"
+                                  )),
+                                  TextSpan(
+                                    text: "Sign up",
+                                    style: TextStyle(
+                                        fontSize: 16,
+                                        color: Color(0xff0037fd),
 
-
-
-
-
-
-
-
-
-
+                                        fontFamily: "GoogleSan",
+                                      decoration: TextDecoration.underline
+                                  ))
+                                ] ))
 
                       ],
                     ),
