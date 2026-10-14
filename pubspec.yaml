@@ -37,6 +37,7 @@ dependencies:
   supabase_flutter: ^2.18.0
   go_router: ^18.0.2
   flutter_riverpod: ^3.4.3
+  glassmorphism: ^4.0.0
 
 dev_dependencies:
   flutter_test:

@@ -8,10 +8,13 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
         useMaterial3: true,
+      scaffoldBackgroundColor: AppColors.primaryScLightColor,
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primaryColor,
+        // logo
         brightness: Brightness.light,
         background: AppColors.backgroundLightColor,
+        primary: AppColors.primaryColor
       ),
         textButtonTheme: TextButtonThemeData(
             style: TextButton.styleFrom(
@@ -29,7 +32,6 @@ class AppTheme {
         ),
         bodyLarge: TextStyle(
             color: AppColors.textLightColor
-
         ),
         bodyMedium: TextStyle(color: AppColors.textLightColor),
         bodySmall: TextStyle(color: AppColors.textLightColor),
@@ -41,10 +43,14 @@ class AppTheme {
   static ThemeData get darkTheme {
     return ThemeData(
         useMaterial3: true,
+        scaffoldBackgroundColor: AppColors.primaryScDarkColor,
         colorScheme: ColorScheme.fromSeed(
           seedColor: AppColors.primaryColorDark,
           brightness: Brightness.dark,
           background: AppColors.backgroundDarkColor,
+          primary: AppColors.primaryDarkColor,
+
+
         ),
         // Color Text Dark
         textButtonTheme: TextButtonThemeData(
@@ -64,6 +70,4 @@ class AppTheme {
 
     );
   }
-
-  get textTheme => null;
 }
